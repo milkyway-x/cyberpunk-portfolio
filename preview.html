@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Portfolio Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #00fff9;
+            --neon-pink: #ff006e;
+            --neon-purple: #b000ff;
+            --dark-bg: #0a0e27;
+            --darker-bg: #050714;
+            --text-primary: #e0e0ff;
+            --text-secondary: #a0a0c0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--darker-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(0, 255, 249, 0.1) 49px, rgba(0, 255, 249, 0.1) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(0, 255, 249, 0.1) 49px, rgba(0, 255, 249, 0.1) 50px);
+            animation: grid-move 3s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes grid-move {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to bottom, transparent, var(--neon-cyan), transparent);
+            box-shadow: 0 0 20px var(--neon-cyan);
+            animation: scan 8s linear infinite;
+            z-index: 9998;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            letter-spacing: 8px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 30px var(--neon-cyan), 0 0 60px var(--neon-cyan);
+            margin-bottom: 2rem;
+            letter-spacing: 10px;
+            animation: neon-glow 2s ease-in-out infinite, fadeIn 1.2s ease-out;
+        }
+
+        @keyframes neon-glow {
+            0%, 100% {
+                text-shadow: 0 0 30px var(--neon-cyan), 0 0 60px var(--neon-cyan);
+            }
+            50% {
+                text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            letter-spacing: 3px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            animation: fadeIn 1.8s ease-out;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 1rem 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border: 2px solid;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button.primary {
+            color: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 255, 249, 0.3);
+        }
+
+        .cta-button.secondary {
+            color: var(--neon-pink);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+        }
+
+        .cta-button.primary:hover {
+            background: var(--neon-cyan);
+            color: var(--darker-bg);
+            box-shadow: 0 0 40px var(--neon-cyan);
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--neon-pink);
+            color: var(--darker-bg);
+            box-shadow: 0 0 40px var(--neon-pink);
+            transform: translateY(-2px);
+        }
+
+        .shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            border: 2px solid;
+            opacity: 0.3;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            border-color: var(--neon-cyan);
+            top: 10%;
+            left: 10%;
+            box-shadow: 0 0 50px var(--neon-cyan);
+            animation: float 20s infinite linear;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            border-color: var(--neon-pink);
+            bottom: 20%;
+            right: 15%;
+            border-radius: 50%;
+            box-shadow: 0 0 50px var(--neon-pink);
+            animation: float-reverse 25s infinite linear;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            border-color: var(--neon-purple);
+            top: 50%;
+            right: 10%;
+            transform: rotate(45deg);
+            box-shadow: 0 0 50px var(--neon-purple);
+            animation: float-diagonal 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        @keyframes float-reverse {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(30px) rotate(-180deg); }
+            100% { transform: translateY(0) rotate(-360deg); }
+        }
+
+        @keyframes float-diagonal {
+            0%, 100% { transform: rotate(45deg) translate(0, 0); }
+            50% { transform: rotate(45deg) translate(50px, -50px); }
+        }
+
+        .info-box {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 14, 39, 0.9);
+            border: 1px solid var(--neon-cyan);
+            padding: 1rem 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--neon-cyan);
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 255, 249, 0.3);
+            z-index: 1000;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .hero-name { font-size: 3rem; }
+            .hero-title { font-size: 1.2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .cta-button { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+            .shape { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="scan-line"></div>
+    
+    <section class="hero">
+        <div class="shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        
+        <div>
+            <h1 class="hero-title">WELCOME TO</h1>
+            <h2 class="hero-name">THE FUTURE</h2>
+            <p class="hero-subtitle">Full Stack Developer | Cyberpunk Enthusiast | Digital Artist</p>
+            
+            <div class="cta-buttons">
+                <button class="cta-button primary" onclick="alert('This would scroll to the Projects section in the full React app!')">VIEW PROJECTS</button>
+                <button class="cta-button secondary" onclick="alert('This would scroll to the Contact section in the full React app!')">CONTACT ME</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="info-box">
+        ✨ This is a preview of your Cyberpunk Portfolio ✨<br>
+        Full React app with animations ready for deployment!
+    </div>
+</body>
+</html>

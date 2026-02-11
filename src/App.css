@@ -1,0 +1,125 @@
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Loader */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--darker-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader {
+  text-align: center;
+  width: 400px;
+  max-width: 90%;
+}
+
+.loader-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 20px var(--neon-cyan);
+  margin-bottom: 2rem;
+  letter-spacing: 4px;
+}
+
+.loader-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 255, 249, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.loader-progress {
+  height: 100%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 15px var(--neon-cyan),
+              inset 0 0 15px var(--neon-cyan);
+  animation: pulse-cursor 2s infinite;
+}
+
+@keyframes pulse-cursor {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Main Content */
+main {
+  position: relative;
+  z-index: 2;
+}
+
+/* Footer */
+.footer {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2rem;
+  margin-top: 5rem;
+  border-top: 1px solid var(--neon-cyan);
+  background: linear-gradient(to bottom, transparent, var(--darker-bg));
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-content p {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan);
+  margin-bottom: 1rem;
+}
+
+.footer-line {
+  width: 100px;
+  height: 2px;
+  background: var(--neon-pink);
+  margin: 1rem auto 0;
+  box-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .loader-text {
+    font-size: 1.2rem;
+  }
+  
+  .custom-cursor {
+    display: none;
+  }
+}
