@@ -65,13 +65,13 @@ function Contact() {
                 </div>
               </div>
 
-              <div className="contact-method">
+              {/* <div className="contact-method">
                 <div className="method-icon">📱</div>
                 <div className="method-content">
                   <div className="method-label">PHONE</div>
                   <div className="method-value">0970-160-3282</div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="contact-method">
                 <div className="method-icon">📍</div>
