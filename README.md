@@ -153,8 +153,8 @@ Edit `src/components/Skills.jsx`:
 
 Edit `src/components/Contact.jsx`:
 - Email: ronand.almazar.official@gmail.com
-- Phone: 0970-160-3282
-- Location: Cadlan, Pili, Camarines Sur
+- Phone: {Put your own number}
+- Location: {Put your own address}
 - Social links (GitHub, LinkedIn)
 
 ### Customize Colors

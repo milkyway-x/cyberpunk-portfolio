@@ -77,7 +77,7 @@ function Contact() {
                 <div className="method-icon">📍</div>
                 <div className="method-content">
                   <div className="method-label">LOCATION</div>
-                  <div className="method-value">Cadlan, Pili, Camarines Sur</div>
+                  <div className="method-value">Camarines Sur, PH</div>
                 </div>
               </div>
 
