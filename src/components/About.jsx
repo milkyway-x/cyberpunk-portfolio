@@ -67,9 +67,7 @@ function About() {
             <motion.div className="text-block" variants={itemVariants}>
               <div className="text-icon">▸</div>
               <p>
-                Currently serving as Technical Staff at the Department of Agriculture - Region V, 
-                leveraging technical expertise in Google Sheets automation, Power BI, and data-informed 
-                decision-making to support regional agricultural programs and initiatives.
+                IT Associate at the Universidad de Sta. Isabel de Naga, specializing in desktop deployment, system administration, and IT infrastructure support. Experienced in batch provisioning of Windows workstations, BIOS configuration, disk management, network setup (static IP/DNS), domain integration, and application deployment. Adept at working under physical and operational constraints while maintaining consistent system standards and supporting regional agricultural operations.
               </p>
             </motion.div>
           </motion.div>
