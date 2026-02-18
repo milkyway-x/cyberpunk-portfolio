@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './Contact.css';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -9,11 +10,39 @@ function Contact() {
     message: '',
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
-    alert('Message sent! (This is a demo)');
+
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          title: 'Portfolio Contact Form', // optional (remove if your template doesn't use it)
+        },
+        { publicKey }
+      );
+
+      alert('Message sent!');
+      setFormData({ name: '', email: '', message: '' }); // optional reset
+        } catch (error) {
+      console.error('EmailJS error:', error);
+
+      // EmailJS often returns useful info here:
+      const msg =
+        error?.text ||
+        error?.message ||
+        JSON.stringify(error);
+
+      alert(`Failed to send: ${msg}`);
+    }
   };
 
   const handleChange = (e) => {

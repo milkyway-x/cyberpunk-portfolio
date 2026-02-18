@@ -57,7 +57,7 @@ function About() {
             <motion.div className="text-block" variants={itemVariants}>
               <div className="text-icon">▸</div>
               <p>
-                As a Software Engineer at Cloud Ready Technologies Corporation, I specialized 
+                As a Software Engineer, I specialized 
                 in serverless architecture, security operations, and developing scalable 
                 solutions using AWS services (S3, Lambda, DynamoDB). My work focuses on 
                 generating actionable insights and optimizing reporting processes.
