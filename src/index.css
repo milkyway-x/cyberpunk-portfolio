@@ -85,6 +85,48 @@ body {
   }
 }
 
+/* Neon Glow Red Animation */
+@keyframes neon-glow-red {
+  0%, 100% {
+    text-shadow: 0 0 10px #8B0000,
+                 0 0 20px #8B0000,
+                 0 0 30px #8B0000;
+  }
+  50% {
+    text-shadow: 0 0 5px #8B0000,
+                 0 0 10px #8B0000,
+                 0 0 15px #8B0000;
+  }
+}
+
+/* Neon Glow Blue Animation */
+@keyframes neon-glow-blue {
+  0%, 100% {
+    text-shadow: 0 0 10px #00008B,
+                 0 0 20px #00008B,
+                 0 0 30px #00008B;
+  }
+  50% {
+    text-shadow: 0 0 5px #00008B,
+                 0 0 10px #00008B,
+                 0 0 15px #00008B;
+  }
+}
+
+/* Neon Glow Light Blue Animation */
+@keyframes neon-glow-light-blue {
+  0%, 100% {
+    text-shadow: 0 0 10px #87CEEB,
+                 0 0 20px #87CEEB,
+                 0 0 30px #87CEEB;
+  }
+  50% {
+    text-shadow: 0 0 5px #87CEEB,
+                 0 0 10px #87CEEB,
+                 0 0 15px #87CEEB;
+  }
+}
+
 /* Scan Line Effect */
 @keyframes scan {
   0% {

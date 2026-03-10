@@ -28,14 +28,14 @@
   font-family: 'Orbitron', sans-serif;
   font-size: 5rem;
   font-weight: 900;
-  color: var(--neon-cyan);
-  text-shadow: 0 0 30px var(--neon-cyan),
-               0 0 60px var(--neon-cyan),
-               0 0 90px var(--neon-cyan);
+  color: #87CEEB;
+  text-shadow: 0 0 30px #87CEEB,
+               0 0 60px #87CEEB,
+               0 0 90px #87CEEB;
   margin-bottom: 2rem;
   letter-spacing: 10px;
   line-height: 1.2;
-  animation: neon-glow 2s ease-in-out infinite;
+  animation: neon-glow-light-blue 2s ease-in-out infinite;
 }
 
 /* Glitch Effect */
@@ -113,7 +113,7 @@
 
 .glitch-name::after {
   left: -3px;
-  text-shadow: -3px 0 var(--neon-purple);
+  text-shadow: -3px 0 #87CEEB;
   clip: rect(85px, 9999px, 140px, 0);
   animation: glitch-anim-2 3s infinite linear alternate-reverse;
 }
