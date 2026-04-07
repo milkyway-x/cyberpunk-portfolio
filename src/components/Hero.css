@@ -184,7 +184,7 @@
   font-weight: 600;
   border-radius: 12px;
   border: none;
-  cursor: none;
+  cursor: pointer;
   letter-spacing: 0.01em;
   display: inline-block;
   will-change: transform;
@@ -219,7 +219,7 @@
   align-items: center;
   gap: 0.4rem;
   margin-top: 1.5rem;
-  cursor: none;
+  cursor: pointer;
   opacity: 0.45;
   transition: opacity 0.2s ease;
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
@@ -13,15 +13,6 @@ function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
   const [isLoading, setIsLoading] = useState(true);
   const [ripples, setRipples] = useState([]);
-  const [cursorHover, setCursorHover] = useState(false);
-
-  // Custom cursor spring physics
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-  const dotX   = useSpring(cursorX, { stiffness: 700, damping: 40 });
-  const dotY   = useSpring(cursorY, { stiffness: 700, damping: 40 });
-  const ringX  = useSpring(cursorX, { stiffness: 110, damping: 16 });
-  const ringY  = useSpring(cursorY, { stiffness: 110, damping: 16 });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -31,21 +22,6 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 1200);
     return () => clearTimeout(timer);
-  }, []);
-
-  // Global mouse tracking
-  useEffect(() => {
-    const onMove = (e) => { cursorX.set(e.clientX); cursorY.set(e.clientY); };
-    const onOver = (e) => { if (e.target.closest('button,a,input,textarea,select,[data-hover]')) setCursorHover(true); };
-    const onOut  = (e) => { if (e.target.closest('button,a,input,textarea,select,[data-hover]')) setCursorHover(false); };
-    window.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseover', onOver);
-    document.addEventListener('mouseout', onOut);
-    return () => {
-      window.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseover', onOver);
-      document.removeEventListener('mouseout', onOut);
-    };
   }, []);
 
   // Click ripple
@@ -93,16 +69,6 @@ function App() {
           transition={{ duration: 0.4 }}
           onClick={handleClick}
         >
-          {/* Custom cursor — desktop only */}
-          <motion.div
-            className={`cursor-dot ${cursorHover ? 'cursor-dot--hover' : ''}`}
-            style={{ x: dotX, y: dotY }}
-          />
-          <motion.div
-            className={`cursor-ring ${cursorHover ? 'cursor-ring--hover' : ''}`}
-            style={{ x: ringX, y: ringY }}
-          />
-
           {/* Click ripples */}
           <AnimatePresence>
             {ripples.map(r => (
