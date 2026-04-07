@@ -94,3 +94,64 @@ main {
     gap: 1rem;
   }
 }
+
+/* ─── Custom Cursor ───────────────────────────────────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  body, a, button { cursor: none !important; }
+}
+
+.cursor-dot,
+.cursor-ring {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor-dot {
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 50%;
+    background: var(--accent);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .cursor-dot--hover {
+    transform: scale(2.2);
+    background: var(--accent-hover);
+  }
+
+  .cursor-ring {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    opacity: 0.55;
+    transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.15s ease;
+  }
+  .cursor-ring--hover {
+    transform: scale(1.6);
+    opacity: 0.25;
+    border-color: var(--accent-hover);
+  }
+}
+
+/* ─── Click Ripple ────────────────────────────────────────────────────────── */
+.click-ripple {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  margin-top: -18px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 9998;
+}

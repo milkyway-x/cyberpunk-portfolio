@@ -11,6 +11,9 @@
 
 /* ─── Card ────────────────────────────────────────────────────────────────── */
 .project-card {
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -20,9 +23,26 @@
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Spotlight overlay */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx) var(--my), rgba(99,102,241,0.1) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
 .project-card:hover {
-  border-color: var(--border-hover);
+  border-color: var(--accent-border);
   box-shadow: var(--shadow-lg);
+}
+
+.project-card:hover::before {
+  opacity: 1;
 }
 
 /* Colored top accent bar */
@@ -38,6 +58,8 @@
   flex-direction: column;
   gap: 0.75rem;
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .project-card__num {
