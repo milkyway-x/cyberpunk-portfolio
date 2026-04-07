@@ -100,8 +100,8 @@ function App() {
                 &copy; 2026 Ronand D. Almazar. All rights reserved.
               </p>
               <div className="footer-links">
-                <a href="https://github.com/ronandalmazar" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://linkedin.com/in/ronandalmazar" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/RonandA01" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/ronand-almazar-26709928a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </div>
             </div>
           </footer>

@@ -105,7 +105,7 @@ function Contact() {
 
             <div className="contact__socials">
               <motion.a
-                href="https://github.com/ronandalmazar"
+                href="https://github.com/RonandA01"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact__social"
@@ -115,7 +115,7 @@ function Contact() {
                 GitHub
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/ronandalmazar"
+                href="https://www.linkedin.com/in/ronand-almazar-26709928a/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact__social"
