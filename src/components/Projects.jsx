@@ -2,91 +2,83 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './Projects.css';
 
-function Projects() {
-  const projects = [
-    {
-      id: 1,
-      title: 'AWS SERVERLESS ARCHITECTURE',
-      description: 'Developed and deployed serverless solutions using AWS Lambda, Step Functions, DynamoDB, and Neptune for scalable cloud applications with automated workflows.',
-      tech: ['AWS Lambda', 'DynamoDB', 'Step Functions', 'S3'],
-      color: 'cyan',
-    },
-    {
-      id: 2,
-      title: 'SECURITY OPERATIONS PLATFORM',
-      description: 'Implemented comprehensive security monitoring using TrendMicro, Wazuh, OpenSearch, and threat intelligence tools for real-time incident detection and response.',
-      tech: ['Wazuh', 'OpenSearch', 'Python', 'MISP'],
-      color: 'pink',
-    },
-    {
-      id: 3,
-      title: 'BUSINESS INTELLIGENCE DASHBOARD',
-      description: 'Created automated reporting systems with Power BI and Google Sheets integration, streamlining financial tracking and data visualization for decision-making.',
-      tech: ['Power BI', 'Google Sheets', 'MySQL', 'Python'],
-      color: 'purple',
-    },
-    {
-      id: 4,
-      title: 'FULLSTACK INVENTORY SYSTEM',
-      description: 'Built complete inventory management system for JL FarmStation Agri-Vet using Visual Basic .NET with database integration and real-time tracking capabilities.',
-      tech: ['VB.NET', 'MySQL', 'Windows Forms', 'Crystal Reports'],
-      color: 'cyan',
-    },
-  ];
+const projects = [
+  {
+    id: 1,
+    title: 'AWS Serverless Architecture',
+    description:
+      'Developed and deployed serverless solutions using AWS Lambda, Step Functions, DynamoDB, and Neptune for scalable cloud applications with automated workflows.',
+    tech: ['AWS Lambda', 'DynamoDB', 'Step Functions', 'S3'],
+    accent: '#6366f1',
+  },
+  {
+    id: 2,
+    title: 'Security Operations Platform',
+    description:
+      'Implemented comprehensive security monitoring using TrendMicro, Wazuh, OpenSearch, and threat intelligence tools for real-time incident detection and response.',
+    tech: ['Wazuh', 'OpenSearch', 'Python', 'MISP'],
+    accent: '#06b6d4',
+  },
+  {
+    id: 3,
+    title: 'Business Intelligence Dashboard',
+    description:
+      'Created automated reporting systems with Power BI and Google Sheets integration, streamlining financial tracking and data visualization for decision-making.',
+    tech: ['Power BI', 'Google Sheets', 'MySQL', 'Python'],
+    accent: '#8b5cf6',
+  },
+  {
+    id: 4,
+    title: 'Fullstack Inventory System',
+    description:
+      'Built a complete inventory management system for JL FarmStation Agri-Vet using Visual Basic .NET with database integration and real-time tracking capabilities.',
+    tech: ['VB.NET', 'MySQL', 'Windows Forms', 'Crystal Reports'],
+    accent: '#10b981',
+  },
+];
 
+function Projects() {
   return (
     <section id="projects" className="projects">
       <div className="section-container">
         <motion.div
           className="section-header"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.55 }}
         >
-          <h2 className="section-title">
-            <span className="title-bracket">{'['}</span>
-            FEATURED PROJECTS
-            <span className="title-bracket">{']'}</span>
-          </h2>
-          <div className="title-underline" />
+          <span className="section-label">Work</span>
+          <h2 className="section-title">Featured Projects</h2>
+          <p className="section-desc">A selection of things I've built and shipped.</p>
         </motion.div>
 
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <motion.div
+        <div className="projects__grid">
+          {projects.map((project, i) => (
+            <motion.article
               key={project.id}
-              className={`project-card ${project.color}`}
-              initial={{ opacity: 0, y: 100 }}
+              className="project-card"
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ y: -5 }}
             >
-              <div className="project-number">0{project.id}</div>
-              <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tech">
-                  {project.tech.map((tech, i) => (
-                    <span key={i} className="tech-tag">
-                      {tech}
-                    </span>
+              <div
+                className="project-card__accent"
+                style={{ background: project.accent }}
+              />
+              <div className="project-card__body">
+                <span className="project-card__num">0{project.id}</span>
+                <h3 className="project-card__title">{project.title}</h3>
+                <p className="project-card__desc">{project.description}</p>
+                <div className="project-card__tags">
+                  {project.tech.map((t) => (
+                    <span key={t} className="project-card__tag">{t}</span>
                   ))}
                 </div>
-                <div className="project-links">
-                  <button className="project-link">
-                    <span>VIEW PROJECT</span>
-                    <span className="link-arrow">→</span>
-                  </button>
-                  <button className="project-link">
-                    <span>GITHUB</span>
-                    <span className="link-arrow">↗</span>
-                  </button>
-                </div>
               </div>
-              <div className="project-overlay" />
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
